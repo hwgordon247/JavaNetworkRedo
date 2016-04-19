@@ -14,7 +14,6 @@ public class User {
     }
 
     public String view(User user) {
-        String response = "";
         return formatMessages(user);
     }
 
