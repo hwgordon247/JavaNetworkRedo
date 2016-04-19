@@ -15,13 +15,26 @@ public class User {
 
     public String view(User user) {
         String response = "";
-        for(int i=0; i < user.messages.size(); i++){
-            response = response + user.messages.get(i) + "\n";
-        }
-        return response;
+        return formatMessages(user);
     }
 
     public void follow (User user) {
         following.add(user);
+    }
+
+    public String wall() {
+        String response = "";
+        for (int i = 0; i < following.size(); i++) {
+            response = response + formatMessages((User) following.get(i));
+        }
+        return response;
+    }
+
+    private String formatMessages(User user) {
+        String response = "";
+        for(int i=0; i < user.messages.size(); i++){
+            response = response + user.messages.get(i) + "\n";
+        }
+        return response;
     }
 }

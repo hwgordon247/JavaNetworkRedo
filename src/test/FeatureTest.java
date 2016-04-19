@@ -9,10 +9,6 @@ import static org.junit.Assert.assertEquals;
  */
 public class FeatureTest {
 
-
-
-
-
     @Test
     public void canCreateUser(){
         User spike = new User();
@@ -23,9 +19,8 @@ public class FeatureTest {
         leo.post("hey");
         spike.view(leo);
         assertEquals("hey\n", spike.view(leo));
-//        spike.follow(leo);
-//        spike.follow(nikesh);
-//        spike.wall();
-
+        spike.follow(leo);
+        spike.follow(nikesh);
+        assertEquals("hey\nhi\n", spike.wall());
     }
 }
